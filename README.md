@@ -5,9 +5,14 @@ In this project, we are supposed to build cloud continuous delivery of Microserv
 
 ### Key Result: 
 * 1) Test the codebase locally.
-* Usage of examples: anca32dvu7.us-east-2.awsapprunner.com/change/1/38
-<img width="692" alt="Screen Shot 2023-01-23 at 10 12 34 PM" src="https://user-images.githubusercontent.com/112274822/214217102-8a58ad86-46cb-49da-b6c1-1b9c6b6ddeb8.png"
+
+Usage of examples: http://127.0.0.1:8080/
+
+![image](./assets/1.png)
+
+Usage of examples: http://127.0.0.1:8080/check/1998/8/22
+
+![image](./assets/2.png)
 
 * 2) Use AWS App Runner to deploy the codebase
-* Usage examples: anca32dvu7.us-east-2.awsapprunner.com/change/1/38
-<img width="692" alt="Screen Shot 2023-01-23 at 10 12 34 PM" src="https://user-images.githubusercontent.com/112274822/214217102-8a58ad86-46cb-49da-b6c1-1b9c6b6ddeb8.png"
+Usage of examples: check/1998/8/22

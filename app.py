@@ -58,7 +58,7 @@ def checkweekday(tgt_year, tgt_month, tgt_day):
 
 @app.route('/')
 def hello():
-    return 'Checkweekday API! Check the weekday of a target date via /checkweekday/year/month/day'
+    return 'Checkweekday API! Check the weekday of a target date via /check/year/month/day'
 
 @app.route('/check/<tgt_year>/<tgt_month>/<tgt_day>')
 def route(tgt_year, tgt_month, tgt_day):
