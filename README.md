@@ -15,4 +15,7 @@ Usage of examples: http://127.0.0.1:8080/check/1998/8/22
 ![image](./assets/2.png)
 
 * 2) Use AWS App Runner to deploy the codebase
-Usage of examples: check/1998/8/22
+
+Usage of examples: http://ec2-3-82-194-31.compute-1.amazonaws.com:8080/check/1998/8/22
+
+![image](./assets/3.png)
