@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template, request
 from flask import jsonify
 import datetime
 app = Flask(__name__)
@@ -58,7 +58,7 @@ def checkweekday(tgt_year, tgt_month, tgt_day):
 
 @app.route('/')
 def hello():
-    return 'Checkweekday API! Check the weekday of a target date via /check/year/month/day'
+    return render_template('index.html')
 
 @app.route('/check/<tgt_year>/<tgt_month>/<tgt_day>')
 def route(tgt_year, tgt_month, tgt_day):
@@ -68,6 +68,26 @@ def route(tgt_year, tgt_month, tgt_day):
     my_dict = {1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thursday", 5: "Friday", 6: "Saturday", 0: "Sunday"}
     result_str = f"{tgt_year}-{tgt_month}-{tgt_day} is {my_dict[result]}."
     return jsonify(result_str)
+
+@app.route('/checkapi', methods=['POST'])
+def send():
+    if request.method == 'POST':
+        tgt_year = request.form['year']
+        tgt_month = request.form['month']
+        tgt_day = request.form['day']
+        if tgt_year == "" or tgt_month=="" or tgt_day=="":
+            pass
+        else:
+            try:
+                tgt_year = int(tgt_year)
+                tgt_month = int(tgt_month)
+                tgt_day = int(tgt_day)
+            except:
+                return render_template('index.html', results="Invalid Input.")
+        result = checkweekday(int(tgt_year), int(tgt_month), int(tgt_day))
+        my_dict = {1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thursday", 5: "Friday", 6: "Saturday", 0: "Sunday"}
+        result_str = f"{tgt_year}-{tgt_month}-{tgt_day} is {my_dict[result]}."
+        return render_template('index.html', results=result_str)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)

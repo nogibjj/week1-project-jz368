@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CheckWeekAPI</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+    />
+    <style>
+      .alert {
+        background: grey;
+        padding: 1rem;
+        border-radius: 10px;
+        color: white;
+        margin: 1rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Welcome to CheckWeekday API.</h1>
+    </div>
+
+    <div class="container">
+      <h5>Input the target date or use the url. (this-page/check/year/month/day)
+      </h5>
+    </div>
+
+    <!-- Form -->
+    <div class="container">
+      <form action="/checkapi" method="POST">
+        <label for="year">year</label>
+        <input
+          type="text"
+          placeholder="Enter the year."
+          class="u-half-width"
+          name="year"
+        />
+
+        <label for="month">month</label>
+        <input
+          type="text"
+          placeholder="Enter the month."
+          class="u-half-width"
+          name="month"
+        />
+
+        <label for="day">day</label>
+        <input
+          type="text"
+          placeholder="Enter the day."
+          class="u-half-width"
+          name="day"
+        />
+
+        <input type="submit" value="Check" id="calc_btn" />
+        <br />
+        <div class="alert">
+          {{ results }}
+        </div>
+      </form>
+    </div>
+
+  </body>
+</html>
