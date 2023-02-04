@@ -24,8 +24,16 @@ Url usage of examples: http://127.0.0.1:8080/check/1998/8/22
 
 ![image](./assets/1.png)
 
-* 2) Use AWS App Runner to deploy the codebase
+* 2) Use AWS EC2 to deploy the codebase
 
 Usage of examples: http://ec2-3-82-194-31.compute-1.amazonaws.com:8080/check/1998/8/22
 
 ![image](./assets/2.png)
+
+Configure the environments:
+
+![image](./assets/6.png)
+
+Configure the domain name:
+
+![image](./assets/7.png)
