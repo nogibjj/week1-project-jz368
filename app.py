@@ -62,6 +62,14 @@ def hello():
 
 @app.route('/check/<tgt_year>/<tgt_month>/<tgt_day>')
 def route(tgt_year, tgt_month, tgt_day):
+    month_days = {1: 31, 2: 28, 3: 31, 4: 30, 5: 31, 6: 30, 7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31}
+    if int(tgt_month)>12 or int(tgt_month)<1:
+        result_str = f"Date out of range."
+        return jsonify(result_str)
+    if int(tgt_day)<1 or int(tgt_day)>month_days[int(tgt_month)]:
+        result_str = f"Date out of range."
+        return jsonify(result_str)
+
     print(f"Check the weekday of {tgt_year}-{tgt_month}-{tgt_day}")
     result = checkweekday(int(tgt_year), int(tgt_month), int(tgt_day))
 
@@ -71,10 +79,21 @@ def route(tgt_year, tgt_month, tgt_day):
 
 @app.route('/checkapi', methods=['POST'])
 def send():
+    month_days = {1: 31, 2: 28, 3: 31, 4: 30, 5: 31, 6: 30, 7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31}
+    important_dates = {"christmas": [12, 25], "new year's day": [1,1], "Halloween": [10, 31]}
+
     if request.method == 'POST':
         tgt_year = request.form['year']
         tgt_month = request.form['month']
         tgt_day = request.form['day']
+        tgt_holiday = request.form['holiday']
+        if tgt_holiday != "":
+            try:
+                tgt_holiday = tgt_holiday.lower()
+                tgt_month, tgt_day = important_dates[tgt_holiday]
+            except:
+                return render_template('index.html', results="Invalid Input.")
+
         if tgt_year == "" or tgt_month=="" or tgt_day=="":
             pass
         else:
@@ -84,6 +103,11 @@ def send():
                 tgt_day = int(tgt_day)
             except:
                 return render_template('index.html', results="Invalid Input.")
+        if int(tgt_month)>12 or int(tgt_month)<1:
+            return render_template('index.html', results="Date out of range.")
+        if int(tgt_day)<1 or int(tgt_day)>month_days[int(tgt_month)]:
+            return render_template('index.html', results="Date out of range.")
+        
         result = checkweekday(int(tgt_year), int(tgt_month), int(tgt_day))
         my_dict = {1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thursday", 5: "Friday", 6: "Saturday", 0: "Sunday"}
         result_str = f"{tgt_year}-{tgt_month}-{tgt_day} is {my_dict[result]}."

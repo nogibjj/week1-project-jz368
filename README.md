@@ -6,16 +6,26 @@ In this project, we are supposed to build cloud continuous delivery of Microserv
 ### Key Result: 
 * 1) Test the codebase locally.
 
-Usage of examples: http://127.0.0.1:8080/
+`python3 app.py`
+
+Usage of examples one: input a specific date via UI
+
+![image](./assets/4.png)
+
+Usage of examples two: input the holiday via UI
+
+![image](./assets/3.png)
+
+Handle invalid inputs:
+
+![image](./assets/5.png)
+
+Url usage of examples: http://127.0.0.1:8080/check/1998/8/22
 
 ![image](./assets/1.png)
-
-Usage of examples: http://127.0.0.1:8080/check/1998/8/22
-
-![image](./assets/2.png)
 
 * 2) Use AWS App Runner to deploy the codebase
 
 Usage of examples: http://ec2-3-82-194-31.compute-1.amazonaws.com:8080/check/1998/8/22
 
-![image](./assets/3.png)
+![image](./assets/2.png)

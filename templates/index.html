@@ -26,14 +26,24 @@
     </div>
 
     <div class="container">
-      <h5>Input the target date or use the url. (this-page/check/year/month/day)
+      <h4>Input the target date, holiday or use the url.
+      </h4>
+    </div>
+
+    <div class="container">
+      <h5><i>Url Example: <u>this-page/check/year/month/day</u></i>
+      </h5>
+    </div>
+
+    <div class="container">
+      <h5><i>Support Holidays: Christmas, New year's Day, Halloween.</i>
       </h5>
     </div>
 
     <!-- Form -->
     <div class="container">
       <form action="/checkapi" method="POST">
-        <label for="year">year</label>
+        <label for="year">Year</label>
         <input
           type="text"
           placeholder="Enter the year."
@@ -41,7 +51,7 @@
           name="year"
         />
 
-        <label for="month">month</label>
+        <label for="month">Month</label>
         <input
           type="text"
           placeholder="Enter the month."
@@ -49,12 +59,20 @@
           name="month"
         />
 
-        <label for="day">day</label>
+        <label for="day">Day</label>
         <input
           type="text"
           placeholder="Enter the day."
           class="u-half-width"
           name="day"
+        />
+
+        <label for="holiday">Holiday</label>
+        <input
+          type="text"
+          placeholder="Name of the holiday."
+          class="u-half-width"
+          name="holiday"
         />
 
         <input type="submit" value="Check" id="calc_btn" />
