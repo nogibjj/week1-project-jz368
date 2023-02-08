@@ -37,3 +37,13 @@ Configure the environments:
 Configure the domain name:
 
 ![image](./assets/7.png)
+
+* 3) Use AWS App Runner to deploy the app on the server side
+
+Running window:
+
+![image](./assets/8.png)
+
+Configure the environments:
+
+![image](./assets/9.png)
